@@ -1,0 +1,29 @@
+# Git
+.git
+.gitignore
+
+# Python / uv
+__pycache__/
+*.py[cod]
+.venv/
+.uv/
+# uv.lock
+# (注意: uv.lockはビルドに使うなら除外しない方が良いですが、
+#  COPYで明示的に指定するならここに入れてもOKです)
+
+# テスト・カバレッジ（さっき作ったやつ！）
+htmlcov/
+.coverage
+.pytest_cache/
+tests/
+
+# Playwright / ブラウザ関連
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# OS / エディタ
+.DS_Store
+.vscode/
+.idea/

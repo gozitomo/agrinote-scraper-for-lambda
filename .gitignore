@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.coverage
+.pytest_cache/
+.python-version
+
+# 環境変数（絶対送信禁止）
+.env
+
+# OS
+.DS_Store
+src/.DS_Store
+tests/.DS_Store
+tmp/.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
+# 一時フォルダ
+tmp/
