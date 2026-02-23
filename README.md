@@ -14,11 +14,12 @@ TDDを考慮して、各工程は疎結合に設計。
 1. **Format**: 取得データを`Pandas` で整形し、スプレッドシート用の行列形式に変換
 1. **Load**: `gspread` を介してGoogleSheetsAPIで書き込み
 
+```mermaid
 graph TD
-subgraph Triggers [Triggers]
-EB[EventBridge Scheduler<br/>20:50 JST]
-Slack[Slack UI<br/>Button Click]
-end
+    subgraph Triggers [Triggers]
+        EB[EventBridge Scheduler<br/>20:50 JST]
+        Slack[Slack UI<br/>Button Click]
+        end
 
     subgraph AWS_LAMBDA [AWS Lambda]
         L1[<b>app_slack.py</b><br/>Receiver]
@@ -51,6 +52,7 @@ end
     Writer <--> GSheets
     L2 --Success/Error Notification --> SlackAPI
     SlackAPI --> Slack
+```
 
 ## フォルダ構成
 
