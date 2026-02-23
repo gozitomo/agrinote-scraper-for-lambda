@@ -18,7 +18,7 @@ TDDを考慮して、各工程は疎結合に設計。
 graph TD
     subgraph Triggers [Triggers]
         EB[EventBridge Scheduler<br/>20:50 JST]
-        Slack[Slack UI<br/>Button Click]
+        SlackButton[Slack UI<br/>Button Click]
         end
 
     subgraph AWS_LAMBDA [AWS Lambda]
@@ -26,6 +26,7 @@ graph TD
         L2[<b>app_scraper.py</b><br/>Main Logic]
 
         L1 --Invokes --> L2
+        SlackButton --Triggers --> L1
         EB --Triggers --> L2
     end
 
@@ -48,10 +49,14 @@ graph TD
         SlackAPI((Slack API))
     end
 
+    subgraph User_Interface [User Interface]
+        SlackDM[Slack DM / Channel]
+    end
+
     Scraper <--> Agrinote
     Writer <--> GSheets
     L2 --Success/Error Notification --> SlackAPI
-    SlackAPI --> Slack
+    SlackAPI --> SlackDM
 ```
 
 ## フォルダ構成
