@@ -55,8 +55,8 @@ class AgriNoteScraper:
         download_link.wait_for(state="visible", timeout=120000)
 
         # 7. ファイルのダウンロードを実行
-        with self.page.expect_download() as download_info:
-            download_link.click()
+        with self.page.expect_download(timeout=120000) as download_info:
+            download_link.click(timeout=120000)
 
         download = download_info.value
 
