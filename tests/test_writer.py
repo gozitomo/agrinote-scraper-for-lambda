@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock, patch
 import pandas as pd
 
-from src.adapters.writer import SpreadSheetWriter
+from src.core.writer import SpreadSheetWriter
 from src.utils.logger import logger
 
 

@@ -17,7 +17,7 @@ class AgriNoteScraper:
 
         try:
             # 成功
-            self.page.wait_for_selector("#headerHamburgerMenu", timeout=10000)
+            self.page.get_by_role("button", name="メニュー").wait_for(timeout=10000)
         except PlaywrightTimeoutError:
             # 失敗
             if self.page.locator("p._1n3hn89z").is_visible():
